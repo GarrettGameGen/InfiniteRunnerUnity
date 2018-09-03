@@ -53,7 +53,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\FollowPlayer.cs" />
+     <Compile Include="Assets\Scripts\playerCollision.cs" />
+     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\Score.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>/home/garrettgamegen/UnityProjects/PhysicsCannon/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
