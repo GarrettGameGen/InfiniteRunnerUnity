@@ -1634,13 +1634,19 @@ extern "C" IL2CPP_METHOD_ATTR void FollowPlayer_Update_m1580389478 (FollowPlayer
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// transform.position = player.position + offset;
+		// transform.position = player.position + offset;
 		Transform_t3600365921 * L_0 = Component_get_transform_m3162698980(__this, /*hidden argument*/NULL);
 		Transform_t3600365921 * L_1 = __this->get_player_4();
+		// transform.position = player.position + offset;
 		Vector3_t3722313464  L_2 = Transform_get_position_m36019626(L_1, /*hidden argument*/NULL);
 		Vector3_t3722313464  L_3 = __this->get_offset_5();
+		// transform.position = player.position + offset;
 		IL2CPP_RUNTIME_CLASS_INIT(Vector3_t3722313464_il2cpp_TypeInfo_var);
 		Vector3_t3722313464  L_4 = Vector3_op_Addition_m779775034(NULL /*static, unused*/, L_2, L_3, /*hidden argument*/NULL);
+		// transform.position = player.position + offset;
 		Transform_set_position_m3387557959(L_0, L_4, /*hidden argument*/NULL);
+		// }
 		return;
 	}
 }
@@ -1656,7 +1662,9 @@ extern "C" IL2CPP_METHOD_ATTR void FollowPlayer_Update_m1580389478 (FollowPlayer
 extern "C" IL2CPP_METHOD_ATTR void PlayerMovement__ctor_m3994561284 (PlayerMovement_t2731566919 * __this, const RuntimeMethod* method)
 {
 	{
+		// public float forwardForce = 2000f;
 		__this->set_forwardForce_5((2000.0f));
+		// public float sidewaysForce = 500f;
 		__this->set_sidewaysForce_6((500.0f));
 		MonoBehaviour__ctor_m1579109191(__this, /*hidden argument*/NULL);
 		return;
@@ -1666,6 +1674,7 @@ extern "C" IL2CPP_METHOD_ATTR void PlayerMovement__ctor_m3994561284 (PlayerMovem
 extern "C" IL2CPP_METHOD_ATTR void PlayerMovement_Start_m3025059540 (PlayerMovement_t2731566919 * __this, const RuntimeMethod* method)
 {
 	{
+		// }
 		return;
 	}
 }
@@ -1679,42 +1688,56 @@ extern "C" IL2CPP_METHOD_ATTR void PlayerMovement_FixedUpdate_m2788581829 (Playe
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// rb.AddForce(0,0,forwardForce * Time.deltaTime);
 		Rigidbody_t3916780224 * L_0 = __this->get_rb_4();
 		float L_1 = __this->get_forwardForce_5();
+		// rb.AddForce(0,0,forwardForce * Time.deltaTime);
 		float L_2 = Time_get_deltaTime_m372706562(NULL /*static, unused*/, /*hidden argument*/NULL);
+		// rb.AddForce(0,0,forwardForce * Time.deltaTime);
 		Rigidbody_AddForce_m1409302596(L_0, (0.0f), (0.0f), ((float)il2cpp_codegen_multiply((float)L_1, (float)L_2)), /*hidden argument*/NULL);
+		// if (Input.GetKey("d"))
+		// if (Input.GetKey("d"))
 		IL2CPP_RUNTIME_CLASS_INIT(Input_t1431474628_il2cpp_TypeInfo_var);
 		bool L_3 = Input_GetKey_m3868879071(NULL /*static, unused*/, _stringLiteral3452614588, /*hidden argument*/NULL);
 		if (!L_3)
 		{
-			goto IL_0052;
+			goto IL_0055;
 		}
 	}
 	{
+		// rb.AddForce(sidewaysForce * Time.deltaTime, 0,0, ForceMode.VelocityChange);
 		Rigidbody_t3916780224 * L_4 = __this->get_rb_4();
 		float L_5 = __this->get_sidewaysForce_6();
+		// rb.AddForce(sidewaysForce * Time.deltaTime, 0,0, ForceMode.VelocityChange);
 		float L_6 = Time_get_deltaTime_m372706562(NULL /*static, unused*/, /*hidden argument*/NULL);
+		// rb.AddForce(sidewaysForce * Time.deltaTime, 0,0, ForceMode.VelocityChange);
 		Rigidbody_AddForce_m467379572(L_4, ((float)il2cpp_codegen_multiply((float)L_5, (float)L_6)), (0.0f), (0.0f), 2, /*hidden argument*/NULL);
 	}
 
-IL_0052:
+IL_0055:
 	{
+		// if (Input.GetKey("a"))
+		// if (Input.GetKey("a"))
 		IL2CPP_RUNTIME_CLASS_INIT(Input_t1431474628_il2cpp_TypeInfo_var);
 		bool L_7 = Input_GetKey_m3868879071(NULL /*static, unused*/, _stringLiteral3452614591, /*hidden argument*/NULL);
 		if (!L_7)
 		{
-			goto IL_0084;
+			goto IL_0089;
 		}
 	}
 	{
+		// rb.AddForce(-sidewaysForce * Time.deltaTime, 0,0,ForceMode.VelocityChange);
 		Rigidbody_t3916780224 * L_8 = __this->get_rb_4();
 		float L_9 = __this->get_sidewaysForce_6();
+		// rb.AddForce(-sidewaysForce * Time.deltaTime, 0,0,ForceMode.VelocityChange);
 		float L_10 = Time_get_deltaTime_m372706562(NULL /*static, unused*/, /*hidden argument*/NULL);
+		// rb.AddForce(-sidewaysForce * Time.deltaTime, 0,0,ForceMode.VelocityChange);
 		Rigidbody_AddForce_m467379572(L_8, ((float)il2cpp_codegen_multiply((float)((-L_9)), (float)L_10)), (0.0f), (0.0f), 2, /*hidden argument*/NULL);
 	}
 
-IL_0084:
+IL_0089:
 	{
+		// }
 		return;
 	}
 }
@@ -1747,16 +1770,22 @@ extern "C" IL2CPP_METHOD_ATTR void Score_Update_m1348792341 (Score_t2516855617 *
 	memset(&V_0, 0, sizeof(V_0));
 	float V_1 = 0.0f;
 	{
+		// scoreText.text = Mathf.Ceil(player.position.z).ToString();
 		Text_t1901882714 * L_0 = __this->get_scoreText_5();
 		Transform_t3600365921 * L_1 = __this->get_player_4();
+		// scoreText.text = Mathf.Ceil(player.position.z).ToString();
 		Vector3_t3722313464  L_2 = Transform_get_position_m36019626(L_1, /*hidden argument*/NULL);
 		V_0 = L_2;
 		float L_3 = (&V_0)->get_z_4();
+		// scoreText.text = Mathf.Ceil(player.position.z).ToString();
 		IL2CPP_RUNTIME_CLASS_INIT(Mathf_t3464937446_il2cpp_TypeInfo_var);
 		float L_4 = ceilf(L_3);
 		V_1 = L_4;
+		// scoreText.text = Mathf.Ceil(player.position.z).ToString();
 		String_t* L_5 = Single_ToString_m3947131094((float*)(&V_1), /*hidden argument*/NULL);
+		// scoreText.text = Mathf.Ceil(player.position.z).ToString();
 		VirtActionInvoker1< String_t* >::Invoke(73 /* System.Void UnityEngine.UI.Text::set_text(System.String) */, L_0, L_5);
+		// }
 		return;
 	}
 }
@@ -1786,25 +1815,34 @@ extern "C" IL2CPP_METHOD_ATTR void playerCollision_OnCollisionEnter_m1509353059 
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// if(collisionInfo.collider.tag == "Obstacle")
 		Collision_t4262080450 * L_0 = ___collisionInfo0;
+		// if(collisionInfo.collider.tag == "Obstacle")
 		Collider_t1773347010 * L_1 = Collision_get_collider_m2708970793(L_0, /*hidden argument*/NULL);
+		// if(collisionInfo.collider.tag == "Obstacle")
 		String_t* L_2 = Component_get_tag_m2716693327(L_1, /*hidden argument*/NULL);
+		// if(collisionInfo.collider.tag == "Obstacle")
 		IL2CPP_RUNTIME_CLASS_INIT(String_t_il2cpp_TypeInfo_var);
 		bool L_3 = String_op_Equality_m920492651(NULL /*static, unused*/, L_2, _stringLiteral3452654525, /*hidden argument*/NULL);
 		if (!L_3)
 		{
-			goto IL_0030;
+			goto IL_0033;
 		}
 	}
 	{
+		// Debug.Log("You Hit it!");
+		// Debug.Log("You Hit it!");
 		IL2CPP_RUNTIME_CLASS_INIT(Debug_t3317548046_il2cpp_TypeInfo_var);
 		Debug_Log_m4051431634(NULL /*static, unused*/, _stringLiteral774768909, /*hidden argument*/NULL);
+		// movement.enabled = false;
 		PlayerMovement_t2731566919 * L_4 = __this->get_movement_4();
+		// movement.enabled = false;
 		Behaviour_set_enabled_m20417929(L_4, (bool)0, /*hidden argument*/NULL);
 	}
 
-IL_0030:
+IL_0033:
 	{
+		// }
 		return;
 	}
 }
